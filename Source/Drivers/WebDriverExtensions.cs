@@ -3,16 +3,16 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Ten10Tests.Drivers
 {
-public static class WebDriverExtensions
-{
-    public static IWebElement FindElement(this IWebDriver driver, By by, int timeoutInSeconds)
+    public static class WebDriverExtensions
     {
-        if (timeoutInSeconds > 0)
+        public static IWebElement FindElement(this IWebDriver driver, By by, int timeoutInSeconds)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-            return wait.Until(drv => drv.FindElement(by));
+            if (timeoutInSeconds > 0)
+            {
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+                return wait.Until(drv => drv.FindElement(by));
+            }
+            return driver.FindElement(by);
         }
-        return driver.FindElement(by);
-    }
 }
 }
