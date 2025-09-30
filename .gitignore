@@ -10,8 +10,8 @@
 # Ignore environment files
 .env
 
-# Ignore logs
-*.log
-
 # Ignore temp files
 *.tmp
+
+# Ignore log files
+*.log
